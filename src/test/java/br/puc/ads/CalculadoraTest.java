@@ -45,4 +45,20 @@ class CalculadoraTest {
         assertEquals(7.0, calc.subtrair(7, 0));
         assertEquals(-7.0, calc.subtrair(0, 7));
     }
+
+    @Test
+    void multiplicarPositivos() {
+        assertEquals(12.0, calc.multiplicar(3, 4));
+    }
+
+    @Test
+    void multiplicarNegativos() {
+        assertEquals(12.0, calc.multiplicar(-3, -4));
+        assertEquals(-12.0, calc.multiplicar(-3, 4));
+    }
+
+    @Test
+    void multiplicarPorZero() {
+        assertEquals(0.0, calc.multiplicar(5, 0));
+    }
 }
