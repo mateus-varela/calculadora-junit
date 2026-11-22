@@ -13,4 +13,11 @@ public class Calculadora {
     public double multiplicar(double a, double b) {
         return a * b;
     }
+
+    public double dividir(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Divisao por zero nao e permitida");
+        }
+        return a / b;
+    }
 }

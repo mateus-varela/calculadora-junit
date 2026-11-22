@@ -1,6 +1,7 @@
 package br.puc.ads;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,5 +61,27 @@ class CalculadoraTest {
     @Test
     void multiplicarPorZero() {
         assertEquals(0.0, calc.multiplicar(5, 0));
+    }
+
+    @Test
+    void dividirPositivos() {
+        assertEquals(2.5, calc.dividir(5, 2));
+    }
+
+    @Test
+    void dividirNegativos() {
+        assertEquals(2.0, calc.dividir(-6, -3));
+        assertEquals(-2.0, calc.dividir(6, -3));
+    }
+
+    @Test
+    void dividirZeroPorNumero() {
+        assertEquals(0.0, calc.dividir(0, 5));
+    }
+
+    @Test
+    void dividirPorZeroLancaExcecao() {
+        ArithmeticException e = assertThrows(ArithmeticException.class, () -> calc.dividir(10, 0));
+        assertEquals("Divisao por zero nao e permitida", e.getMessage());
     }
 }
